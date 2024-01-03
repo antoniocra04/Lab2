@@ -1,6 +1,5 @@
 #include <iostream>
 #include "List.h"
-using namespace std;
 
 List::List() 
 {
@@ -13,7 +12,6 @@ ListItem* List::FindItem(const int& position)
 {
 	if (_length == 0 || _length < position || position <= 0)
 	{
-		cout << "lenght less than zero or element position"<<endl;
 		return nullptr;
 	}
 
@@ -30,7 +28,6 @@ ListItem* List::FindItemByValue(const int& value)
 {
 	if (_length == 0)
 	{
-		cout << "lenght less than zero" << endl;
 		return nullptr;
 	}
 
@@ -102,7 +99,6 @@ List& List::InsertAtEnd(const int& value)
 List& List::InsertAfterItem(const int& value, const int& afterValue)
 {
 	if (_length < 1) {
-		cout << "length less than 1";
 		return *this;
 	}
 
@@ -136,7 +132,6 @@ List& List::InsertAfterItem(const int& value, const int& afterValue)
 List& List::InsertBeforeItem(const int& value, const int& beforeValue)
 {
 	if (_length < 1) {
-		cout << "length less than 1";
 		return *this;
 	}
 
@@ -170,7 +165,6 @@ List& List::InsertBeforeItem(const int& value, const int& beforeValue)
 List& List::DeleteItem(const int& value)
 {
 	if (_length < 1) {
-		cout << "length less than 1";
 		return *this;
 	}
 
@@ -297,39 +291,4 @@ List::~List()
 	{
 		DeleteItem(_head->_value);
 	}
-}
-
-ostream& operator<<(ostream& os, List& list)
-{
-	os << "Current list: [ ";
-
-	ListItem* current = list._head;
-
-	for (int i = 0; i < list._length; i++)
-	{
-		os << current->_value << " ";
-		current = current->_next;
-	}
-
-	os << "] length: " << list._length ;
-	
-	if (list._head == NULL)
-	{
-		os << " head: NULL";
-	}
-	else
-	{
-		os << " head: " << list._head->_value;
-	}
-
-	if (list._tail == NULL)
-	{
-		os << " tail: NULL";
-	}
-	else
-	{
-		os << " tail: " << list._tail->_value;
-	}
-
-	return os;
 }

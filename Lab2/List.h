@@ -1,12 +1,9 @@
 ﻿#pragma once
 #include "ListItem.h"
-#include <iostream>
-
-using std::ostream;
 
 class List 
 {
-private:
+public:
 	ListItem* _head;
 	ListItem* _tail;
 	int _length;
@@ -32,7 +29,6 @@ private:
 	/// <param name="secondPosition">Позиция второго</param>
 	void Swap(int firstPosition, int secondPosition);
 
-public:
 	List();
 	~List();
 
@@ -85,8 +81,4 @@ public:
 	/// </summary>
 	/// <returns>List</returns>
 	List& Sort();
-
-
-	friend ostream& operator<<(ostream& os, List& list);
-	
 };
